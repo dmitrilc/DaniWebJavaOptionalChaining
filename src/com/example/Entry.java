@@ -6,16 +6,15 @@ import java.util.Optional;
 public class Entry {
     private static final LocalDate GEN_ALPHA = LocalDate.ofYearDay(2010,1); //1
     private static final LocalDate GEN_Z = LocalDate.ofYearDay(1997, 1); //2
-    private static final LocalDate GEN_MILLENIALS = LocalDate.ofYearDay(1981, 1); //3
 
-    public static void main(String... args){
+    public static void main(String... args){ //3
         //noCheckOpt(); //4
         //checkOpt(); //5
         //optChain(); //6
     }
 
     private static boolean isGenZ(LocalDate d){ //7
-        return d.isBefore(GEN_ALPHA) && d.isAfter(GEN_MILLENIALS);
+        return (d.isEqual(GEN_Z) || d.isAfter(GEN_Z)) && d.isBefore(GEN_ALPHA);
     }
 
     private static void noCheckOpt(){ //8
